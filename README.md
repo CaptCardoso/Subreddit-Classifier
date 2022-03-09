@@ -6,7 +6,7 @@
 
 ---
 ## Problem Statement
-There has been talk on the similarities between starwars and startrek universe. Some people say that writers use the same kind of keywords in both films. By using Natural Lanuage Processing, this project seeks to clarify the conversation.
+There has been talk on the similarities between starwars and startrek universe. Some people say that writers use the same kind of keywords in both films. By using Natural Language Processing, this project seeks to clarify the conversation.
 
 ---
 ## DATA
@@ -59,7 +59,7 @@ From the VADAR NLTK library, I used the SentimentIntensityAnalyzer() method. Thi
 
 The logistic regression had a slightly better accuracy score 87% than the random forest model 84%. It was able to correctly classify 239 posts from starwars and 191 posts from startrek. Total missclassified was 70. This in my opinion isn't a bad result.
 
-I analysed the missclassified posts, most of the words from the miscclassified post are words like series, episodes, seasons etc. These can easily be attributed to either subreddits
+I analysed the missclassified posts, most of the words from the misclassified post are words like series, episodes, seasons etc. These can easily be attributed to either subreddits
 
 The results shows that both starwars and startrek have very distinct keywords.
 
