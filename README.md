@@ -1,10 +1,12 @@
 
+<img src="../images/download.png" style="float: center; margin: 0px; height: 150px; width: 100px">  
+
 # Subreddit Classifier
 #### By Afolabi Cardoso
 
 ---
 ## Problem Statement
-There has been talk on the similarities between starwars and startrek universe. Some people say that writers use the same kind of lingua in both films. By using Natural Lanuage Processing, this project seeks to clarify the conversation.
+There has been talk on the similarities between starwars and startrek universe. Some people say that writers use the same kind of keywords in both films. By using Natural Lanuage Processing, this project seeks to clarify the conversation.
 
 ---
 ## DATA
@@ -20,13 +22,13 @@ There has been talk on the similarities between starwars and startrek universe. 
 
 #### **Data Gathering**
 
-By using the [Pushshift's](https://github.com/pushshift/api) API, I was able to get 2000 posts from Reddit. 1000 posts from starwars and startrek. subreddit each. I used the JSON() method to convert the data to json format. Once in json format it was easier to extract the subreddit information into a dataframe.
+By using the [Pushshift's](https://github.com/pushshift/api) API, I was able to get 2000 posts from [Reddit](https://www.reddit.com/). 1000 posts from [starwars](https://www.reddit.com/r/StarWars/) and [startrek](https://www.reddit.com/r/startrek/) subreddit each. I used the json() method to convert the data to json format. Once in json format it was easy to extract the subreddit information into a dataframe.
 
 ---
 ## Methodology
 ---
 #### **Data Cleaning**
-- Checked or null values and replaced null values with an empty string
+- Checked for null values and replaced them with an empty string
 - The string [removed] appeared a lot in the selftext, this was used to replace an empty post. I replaced [removed] with an empty string
 - I set all the string column to lowercase
 
@@ -45,16 +47,24 @@ From the VADAR NLTK library, I used the SentimentIntensityAnalyzer() method. Thi
 - By using sklearn train_test_split method, I divided the dataset into the training and testing data.  
 - I created a pipeline of CountVectorizer and LogisticRegression so I can pass them into a grid search
 - I passed english as a stop_word into the CountVectorizer. This helps remove common english words that don't help the model
-- I used a grid search to iterate through multiple parameters.
+- I used a grid search to iterate through multiple hyper parameters.
 - I got an accuracy score of 86.5%
 
 
-#### **K Nearest Neighbors Classifier**
-- The knn classifier had an accuracy score of 84%  
+#### **Random Forest Classifier**
+- The accuracy for the random forest was 84%  
 
 ---
 ## Conclusion
 
+The logistic regression had a slightly better accuracy score 87% than the random forest model 84%. It was able to correctly classify 239 posts from starwars and 191 posts from startrek. Total missclassified was 70. This in my opinion isn't a bad result.
+
+I analysed the missclassified posts, most of the words from the miscclassified post are words like series, episodes, seasons etc. These can easily be attributed to either subreddits
+
+The results shows that both starwars and startrek have very distinct keywords.
+
 ---
-## Recccomodations
+## Reccomodations
+
+For this experiment, I used only the subreddit titles, for my next experiment, I will be using both the titles and the subtext. I believe this will help increase the accuracy of the classifier.
 
